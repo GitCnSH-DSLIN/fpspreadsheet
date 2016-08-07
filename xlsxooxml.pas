@@ -37,6 +37,9 @@ interface
 uses
   Classes, SysUtils,
   laz2_xmlread, laz2_DOM,
+  {$IF FPC_FULLVERSION >= 30000}
+  LazFileUtils,
+  {$ENDIF}
   AVL_Tree,
  {$IF FPC_FULLVERSION >= 20701}
   zipper,
