@@ -2922,7 +2922,7 @@ begin
       SplitHyperlink(hyperlink^.Target, target, bookmark);
       if target <> '' then
       begin
-        if (pos('file:', target) = 0) and FileNameIsAbsolute(target) then
+        if (pos('file:', target) = 0) {$IF (fpc_version >= 3)} and FileNameIsAbsolute(target){$ENDIF} then
           FileNameToURI(target);
 //          target := 'file:///' + target;
         s := Format('Id="rId%d" Type="%s" Target="%s" TargetMode="External"',
